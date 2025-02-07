@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name:	My Custom Functionality
-Plugin URI:		https://example.com
-Description:	My custom functions.
+Plugin Name:	Oxygen Polylang Strings Shortcode
+Plugin URI:		https://github.com/HRandt/Polylang-Shortcodes-for-Oxygen
+Description:	Create shortcodes to access Polylang strings from Oxygen templates.
 Version:		1.0.0
-Author:			Your Name
-Author URI:		https://example.com
+Author:			H. Randt
+Author URI:		https://conejadas.es
 License:		GPL-2.0+
 License URI:	http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -47,3 +47,77 @@ function custom_enqueue_files() {
 
 	// wp_enqueue_script( 'highlightjs-init', plugin_dir_url( __FILE__ ) . 'assets/js/highlight-init.js', '', '1.0.0', true );
 }
+
+/**
+ * Create the shortcode block
+ * it can be recall with:
+ * [pll_translate text="$text"]
+ * or...
+ * [pll_translate text="$text" lang="$lang"]
+ */
+function polylanguage_shortcode( $atts ) {
+  $atts = shortcode_atts(
+      array(
+          'text'           => '',
+          'lang'           => pll_current_language()
+      ),
+      $atts
+  );
+  return pll_translate_string( $atts['text'], $atts['lang'] );
+}
+add_shortcode( 'pll_translate', 'polylanguage_shortcode' );
+
+/**
+ * Outputs localized string if polylang exists or  output's not translated one as a fallback
+ *
+ * @param $string
+ *
+ * @return  void
+ */
+function pl_e( $string = '' ) {
+    if ( function_exists( 'pll_e' ) ) {
+        pll_e( $string );
+    } else {
+        echo $string;
+    }
+}
+
+/**
+ * Returns translated string if polylang exists or  output's not translated one as a fallback
+ *
+ * @param $string
+ *
+ * @return string
+ */
+function pl__( $string = '' ) {
+    if ( function_exists( 'pll__' ) ) {
+        return pll__( $string );
+    }
+
+    return $string;
+}
+
+/** 
+* Register here the translatable strings.
+* pll_register_string( $name, $string, $group, $multiline );
+* ‘$name’ => (required) name provided for sorting convenience (ex: ‘myplugin’)
+* ‘$string’ => (required) the string to translate
+* ‘$group’ => (optional) the group in which the string is registered, defaults to ‘polylang’
+* ‘$multiline’ => (optional) if set to true, the translation text field will be multiline, defaults to false
+*/
+function your_prefix_after_setup_theme() {
+
+    if ( function_exists( 'pll_register_string' ) ) {
+
+        pll_register_string( 'faq', 'F.A.Q.', 'menu', false );
+		pll_register_string( 'about', 'About', 'menu', false );
+		pll_register_string( 'newsletter', 'Newsletter', 'menu', false );
+		pll_register_string( 'linktree', 'Linktree', 'menu', false );
+		pll_register_string( 'blog', 'Blog', 'menu', false );
+		pll_register_string( 'contact', 'Contact', 'menu', false );
+		pll_register_string( 'subdescription', 'subdescription', 'main', false );
+		pll_register_string( 'books', 'mybooks', 'main', false );
+
+    }
+}
+ add_action( 'after_setup_theme', 'your_prefix_after_setup_theme' );
