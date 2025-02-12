@@ -211,26 +211,19 @@ add_action('init', function() {
 });
 
 /**
- * Polylang Shortcode - https://wordpress.org/plugins/polylang/
- * Add this code in your functions.php
- * Put shortcode [polylang_langswitcher] to post/page for display flags
+ * Proper way to enqueue scripts and styles.
  *
- * @return string
- */
- /*
-function polylang_langswitcher_css() {
-	$output = '';
-	if ( function_exists( 'pll_the_languages' ) ) {
-		$args   = ".lang-item{
-					display:inline;
-					padding-left:5px;
-					list-style:none;
-					}"
-		$output = $args;
-	}
-
-	return $output;
-}
-
-add_shortcode( 'polylang_css', 'polylang_langswitcher_css' );
 */
+add_action('wp_enqueue_scripts', 'callback_for_setting_up_scripts');
+function callback_for_setting_up_scripts() {
+	wp_enqueue_style('your-plugin-style', plugin_dir_url(__FILE__) . 'assets/css/style.css');
+    /*wp_register_style( 'list_style', '/assets/css/style.css' );
+    wp_enqueue_style( 'list_style' );*/
+	/* wp_enqueue_script( 'namespaceformyscript', 'http://locationofscript.com/myscript.js', array( 'jquery' ) ); */
+	
+	/*
+	 * wp_enqueue_scripts action will set things up for the "frontend". 
+	 * admin_enqueue_scripts action for the backend (anywhere within wp-admin).
+	 * login_enqueue_scripts action for the login page.
+	 */
+}
