@@ -19,8 +19,8 @@ This plugin is based in the code of the following good people:
 - [Karamanliev](https://gist.github.com/karamanliev/7d0e580da26d8a3344008f14eb238552)
 - [Mosharush](https://gist.github.com/Mosharush/5e69d0c0cf61333e7cfd464b471986c1)
 - [Mikhail.root](https://stackoverflow.com/a/52122148)
-- [Nicomollet] (https://gist.github.com/nicomollet/47ba9808f3187c9f1568d8f7c4355b54)
-- [KittenCodes] (https://gist.github.com/KittenCodes/e7a7207dc56155473cd2f572e27e09ad#file-polylang_condition-php)
+- [Nicomollet](https://gist.github.com/nicomollet/47ba9808f3187c9f1568d8f7c4355b54)
+- [KittenCodes](https://gist.github.com/KittenCodes/e7a7207dc56155473cd2f572e27e09ad#file-polylang_condition-php)
 
 Thank you.
 
