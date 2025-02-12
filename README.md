@@ -5,11 +5,10 @@ This wordpress plugin accomplish five purposes:
 - Register new strings to translate without the need to edit functions.php nor installing a pluging to launch snippets.
 - Load custom CSS and JS files in WordPress but withouth editing functions.php.
 - Create a Gutenberg Shortcode access to add a Language switcher.
+- Customize the Language switcher.
 - Register a condition that you can use in Oxygen to show/hide content based on the language string in the URL.
 
 If you are wondering what's the problem with functions.php: Oxygen doesn't make use of functions.php since this builder desactivate wordpress themes. So if you need to add PHP functions, you have to put it in a plugin.
-
-In the CSS folder you will also find a little css code to modify the look of the language switcher. It doesn't work from this plugin, you will have to copy the code to the Oxygen Stylesheet.
 
 ## About the code ##
 I created this plugin because I wanted a simple way to manage the translation and customization of my website without adding a third-party plugin to handle code snippets.
@@ -46,5 +45,5 @@ Use `[pll_translate text="$text"]` or `[pll_translate text="$text" lang="$lang"]
 ### 1.1.0 ###
 * Create Oxygen condition by language.
 * Create Language switcher that can be use by shortcode.
-* CSS to modify the look of the language switcher.
+* CSS to modify the look of the Language switcher.
 * Enqueue CSS and JS

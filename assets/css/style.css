@@ -1,9 +1,3 @@
-/*
- * I wasn't able to apply this css to all site from the plugin.
- * So, if you are working with Oxygen, it has to be added to Stylesheets inside Oxygen.
- * Anyway, I keep this here to save this code.
- */
- 
 /* CSS to display the flags inline and without bullets, the padding is just to ajust space between elements */
 .lang-item{
 display:inline;
