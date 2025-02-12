@@ -217,13 +217,14 @@ add_action('init', function() {
 add_action('wp_enqueue_scripts', 'callback_for_setting_up_scripts');
 function callback_for_setting_up_scripts() {
 	wp_enqueue_style('your-plugin-style', plugin_dir_url(__FILE__) . 'assets/css/style.css');
-    /*wp_register_style( 'list_style', '/assets/css/style.css' );
-    wp_enqueue_style( 'list_style' );*/
-	/* wp_enqueue_script( 'namespaceformyscript', 'http://locationofscript.com/myscript.js', array( 'jquery' ) ); */
-	
+    
 	/*
 	 * wp_enqueue_scripts action will set things up for the "frontend". 
 	 * admin_enqueue_scripts action for the backend (anywhere within wp-admin).
 	 * login_enqueue_scripts action for the login page.
 	 */
+	
+	// Enqueue jQuery and your custom script
+	//wp_enqueue_script('jquery');
+	//wp_enqueue_script('your-plugin-script', plugin_dir_url(__FILE__) . 'assets/js/script.js', array('jquery'), '1.0', true);
 }

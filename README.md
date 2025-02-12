@@ -21,6 +21,7 @@ This plugin is based in the code of the following good people:
 - [Mikhail.root](https://stackoverflow.com/a/52122148)
 - [Nicomollet](https://gist.github.com/nicomollet/47ba9808f3187c9f1568d8f7c4355b54)
 - [KittenCodes](https://gist.github.com/KittenCodes/e7a7207dc56155473cd2f572e27e09ad#file-polylang_condition-php)
+- [user-meta.com](https://user-meta.com/blog/include-css-jquery-wordpress-plugin/)
 
 Thank you.
 
@@ -45,4 +46,5 @@ Use `[pll_translate text="$text"]` or `[pll_translate text="$text" lang="$lang"]
 ### 1.1.0 ###
 * Create Oxygen condition by language.
 * Create Language switcher that can be use by shortcode.
-* Optional CSS to modify the look of the language switcher.
+* CSS to modify the look of the language switcher.
+* Enqueue CSS and JS
